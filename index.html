@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="icon8.png">
-<title>Jamesy-tech | Coding is Life™</title>
+<title>Jamesy-tech | Creativity is everything</title>
 <meta name="author" content="James">
 <meta name="description" content="The home for all my creations, resources, favourites and more! | @JamesyDeveloper on YT | #codingislife">
 <style>
@@ -36,7 +36,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(240,248,255,.92);backdro
 
 /* main */
 main{max-width:1100px;margin:auto;padding:28px 20px 10px}
-h2{font-size:18px;font-weight:800;margin:34px 0 12px}
+h2{font-size:18px;font-weight:800;margin:34px 0 12px;}
 .hero {
     margin-top:3px;
 }
@@ -95,7 +95,7 @@ main video{
  <div class="bar">
   <div class="brand" onclick="window.top.location.href='https://jamesy-tech.github.io'">
    <img src="icon8.png" alt="Jamesy-tech logo">
-   <h1 class="title" aria-label="Coding is Life™"></h1>
+   <h1 class="title" aria-label="Creativity is everything"></h1>
   </div>
   <div class="search">
    <input class="searchbar" id="searchbar" placeholder="Search Jamesy-tech or type a URL" autocomplete="off">
@@ -175,7 +175,7 @@ main video{
  </div>
 </main>
 
-<footer><span>https://jamesy-tech.github.io</span><span>Coding is Life™ · #codingislife</span></footer>
+<footer><span>https://jamesy-tech.github.io</span><span>Creativity is everything · #jamesydeveloper</span></footer>
 
 <script src='https://www.noupe.com/embed/019e2e76f20b71a9bdf8da74f5ecb4ba369c.js'></script>
 <script>
@@ -189,7 +189,7 @@ const repos=[["toolbox","Collection of Bash scripts"],["bsod","Fake BSOD"],["ras
 document.getElementById("repos").innerHTML=repos.map(r=>`<a class="card" href="https://github.com/Jamesy-tech/${r[0]}">/${r[0]}<small>${r[1]}</small></a>`).join("");
 
 const titleEl=document.querySelector(".title");
-"Coding is Life™".split("").forEach(c=>{const s=document.createElement("span");s.className="letter";s.textContent=c===" "?"\u00A0":c;titleEl.appendChild(s)});
+"Creativity is everything".split("").forEach(c=>{const s=document.createElement("span");s.className="letter";s.textContent=c===" "?"\u00A0":c;titleEl.appendChild(s)});
 window.addEventListener("DOMContentLoaded",()=>{
  const L=titleEl.querySelectorAll(".letter");let i=0;
  const t=setInterval(()=>{if(i<L.length)L[i++].classList.add("visible");else clearInterval(t)},80);
