@@ -189,7 +189,7 @@ const repos=[["toolbox","Collection of Bash scripts"],["bsod","Fake BSOD"],["ras
 document.getElementById("repos").innerHTML=repos.map(r=>`<a class="card" href="https://github.com/Jamesy-tech/${r[0]}">/${r[0]}<small>${r[1]}</small></a>`).join("");
 
 const titleEl=document.querySelector(".title");
-"Creativity is everything".split("").forEach(c=>{const s=document.createElement("span");s.className="letter";s.textContent=c===" "?"\u00A0":c;titleEl.appendChild(s)});
+" Jamesy-tech".split("").forEach(c=>{const s=document.createElement("span");s.className="letter";s.textContent=c===" "?"\u00A0":c;titleEl.appendChild(s)});
 window.addEventListener("DOMContentLoaded",()=>{
  const L=titleEl.querySelectorAll(".letter");let i=0;
  const t=setInterval(()=>{if(i<L.length)L[i++].classList.add("visible");else clearInterval(t)},80);
