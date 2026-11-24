@@ -1,255 +1,550 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="author" content="James">
+    <meta name="description" content="The home for all my creations, resources, favourites and more! | @JamesyDeveloper on YT | #codingislife">
+    <title>Jamesy-tech | Creativity is everything</title>
+    <link rel="icon" href="icon8.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="icon" href="icon8.png">
-<title>Jamesy-tech | Creativity is everything</title>
-<meta name="author" content="James">
-<meta name="description" content="The home for all my creations, resources, favourites and more! | @JamesyDeveloper on YT | #codingislife">
-<style>
-*{box-sizing:border-box}
-body{margin:0;background:aliceblue;font-family:"Nunito",sans-serif;color:#222;opacity:0;transition:opacity .8s ease-in-out}
-a{color:inherit;text-decoration:none}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --surface: #f2f3f0;
+            --ink: #14181f;
+            --muted: #5b6370;
+            --line: #d9dcd6;
+            --blue: #27467f;
+            --accent: #b4753d;
+            --font: 'Nunito';
+        }
 
-/* header */
-header{position:sticky;top:0;z-index:50;background:rgba(240,248,255,.92);backdrop-filter:blur(8px);border-bottom:2px solid #dbe9f7}
-.bar{max-width:1100px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:20px}
-.brand{display:flex;align-items:center;gap:10px;cursor:pointer;flex:none}
-.brand img{width:38px;height:38px}
-.title{font-size:24px;font-weight:700;margin:0;white-space:nowrap;min-width:6ch; margin-right:20px; }
-.letter{display:inline-block;opacity:0;transition:opacity .5s ease-in-out}
-.letter.visible{opacity:1}
-.search{position:relative;flex:1;max-width:520px}
-.searchbar{ /*margin-left:20px;*/ width:100%;padding:12px 15px; padding-left:18px; font:inherit;font-size:15px;border-radius:10px;outline:none;transition:.3s;border:solid lightgray 2px;background:#fff}
-.searchbar:focus{border-color:dodgerblue; outline:none; } 
-.results{position:absolute;top:calc(100% + 8px);left:0;right:0;background:#fff;border-radius:10px;padding:8px;max-height:0;opacity:0;transform:translateY(-8px);overflow:auto;pointer-events:none;transition:.25s ease;box-shadow:0 8px 24px rgba(30,100,200,.15)}
-.results.show{max-height:340px;opacity:1;transform:none;pointer-events:auto}
-.option{display:block;width:100%;padding:10px;text-align:left;background:none;border:none;border-radius:5px;font:inherit;font-size:14px;cursor:pointer;transition:.2s}
-.option:hover,.option.active{background:#f2f7fd}
-.clock{margin-left:auto;text-align:right;line-height:1.2;color:rgba(0,0,0,.7);flex:none}
-.clock b{display:block;font-size:20px;font-weight:700}
-.clock span{font-size:13px}
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #101319;
+                --surface: #1a1e26;
+                --ink: #f1f2ef;
+                --muted: #9aa2af;
+                --line: #2c323d;
+                --accent: #d08c52;
+            }
+        }
 
-/* main */
-main{max-width:1100px;margin:auto;padding:28px 20px 10px}
-h2{font-size:18px;font-weight:800;margin:34px 0 12px;}
-.hero {
-    margin-top:3px;
-}
-.hero{background:#fff;border-radius:14px;padding:26px 28px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;border:2px solid transparent}
-.hero h1{margin:0 0 6px;font-size:28px}
-.hero p{margin:0;color:#555;max-width:560px;line-height:1.5}
-.hero .btns{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
-.btn{padding:11px 18px;border-radius:10px;font-weight:700;font-size:14px;border:2px solid dodgerblue;transition:.3s;cursor:pointer}
-.btn.primary{background:dodgerblue;color:#fff}
-.btn.primary:hover{background:#1a7ee0;border-color:#1a7ee0}
-.btn.ghost{background:#fff;color:dodgerblue}
-.btn.ghost:hover{background:#f2f7fd}
+        *,
+        *::before,
+        *::after { box-sizing: border-box; }
 
-.grid{display:grid;gap:12px}
-.apps{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
-.app{background:#fff;border-radius:10px;border:2px solid transparent;padding:16px;transition:.3s;display:flex;flex-direction:column;gap:10px}
-.app:hover,.card:hover,.chip:hover{border-color:dodgerblue}
-.app .logo{height:60px;display:flex;align-items:center;justify-content:center;background:aliceblue;border-radius:8px}
-.logo { margin-bottom:9px;}
-.app img{height:35px;max-width:80%;object-fit:contain}
-.app h3{margin:0;font-size:16px}
-.app p{margin:0;font-size:13.5px;color:#555;line-height:1.45}
+        html { scroll-behavior: smooth; }
 
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.card{background:#fff;border-radius:10px;border:2px solid transparent;padding:12px 16px;transition:.3s;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:14.5px}
-.card small{color:#777;font-size:12.5px;text-align:right}
-.list{display:flex;flex-direction:column;gap:8px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{background:#fff;border-radius:999px;border:2px solid transparent;padding:8px 14px;font-size:13.5px;transition:.3s}
-footer{max-width:1100px;margin:30px auto 0;padding:20px;color:rgba(0,0,0,.55);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:2px solid #dbe9f7}
-:focus-visible{outline:2px solid dodgerblue;outline-offset:2px}
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--font);
+            font-size: 17px;
+            line-height: 1.55;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
 
-@media(max-width:760px){
- .bar{flex-wrap:wrap;gap:10px}
- .search{order:3;flex-basis:100%;max-width:none}
- .cols{grid-template-columns:1fr}
- .hero .btns{margin-left:0}
-}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+        img, video { display: block; max-width: 100%; }
+        a { color: inherit; text-decoration: none; }
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-main video{
-  display:block;
-  width:100%;
-/*  height:400px; */
-  aspect-ratio:16/9;
-  border-radius:14px;
-  background:#000;
-  margin-bottom:16px;
-}
+        .wrap { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 
-</style>
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 26px;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            font: 600 15px/1 var(--font);
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .btn-light { background: #fff; color: #14181f; }
+        .btn-light:hover { background: #e6e9ef; }
+        .btn-ghost { color: #fff; border-color: rgba(255, 255, 255, 0.55); }
+        .btn-ghost:hover { background: #fff; color: #14181f; }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: calc(12px + env(safe-area-inset-top, 0px)) 0 12px;
+            background: color-mix(in srgb, var(--bg) 90%, transparent);
+            backdrop-filter: blur(8px);
+        }
+
+        .bar { display: flex; align-items: center; gap: 20px; margin-top:10px; margin-bottom:10px;}
+
+        .brand { display: flex; align-items: center; gap: 12px; flex: none; }
+        .brand img { width: 48px; height: 48px; object-fit: contain; }
+
+        .title {
+            min-width: 6ch;
+            margin: 0;
+            font-size: 22px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .letter { display: inline-block; opacity: 0; transition: opacity 0.5s ease-in-out; }
+        .letter.visible { opacity: 1; }
+
+        .search { position: relative; flex: 1; max-width: 520px; margin-left: auto; }
+
+        .searchbar {
+            width: 100%;
+            padding: 13px 24px;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            background: var(--surface);
+            color: var(--ink);
+            font: inherit;
+            font-size: 15px;
+            transition: border-color 0.2s;
+        }
+        .searchbar::placeholder { color: var(--muted); }
+        .searchbar:focus { outline: none; border-color: var(--accent); }
+
+        .results {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            max-height: 0;
+            padding: 8px;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            background: var(--bg);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            overflow: auto;
+            pointer-events: none;
+            transform: translateY(-8px);
+            transition: 0.25s ease;
+        }
+        .results.show { max-height: 340px; opacity: 1; pointer-events: auto; transform: none; }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 10px 14px;
+            border: 0;
+            border-radius: 12px;
+            background: none;
+            color: var(--ink);
+            font: inherit;
+            font-size: 14px;
+            text-align: left;
+            cursor: pointer;
+        }
+        .option:hover, .option.active { background: var(--surface); }
+
+        .clock { flex: none; text-align: right; line-height: 1.2; }
+        .clock b { display: block; font-size: 20px; font-weight: 700; }
+        .clock span { color: var(--muted); font-size: 13px; }
+
+        .hero {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 560px;
+            padding: 56px 48px;
+            border-radius: 28px;
+            background: var(--blue);
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .hero-overlay { position: absolute; inset: 0; background: rgba(10, 20, 45, 0.4); }
+        .hero-content, .hero-note { margin-left:22px; margin-top:22px; position: relative; }
+
+        h1 {
+            max-width: 15em;
+            margin: 0 0 20px;
+            font-size: clamp(34px, 5.2vw, 64px);
+            font-weight: 600;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-lead { max-width: 30em; margin: 0 0 36px; font-size: 19px; }
+        .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+        .hero-note { align-self: flex-end; max-width: 340px; margin: 48px 0 0; font-size: 14px; }
+
+        section { padding: 40px 0 0; }
+        section:last-of-type { padding-bottom: 80px; }
+
+        h2 {
+            margin: 0 0 32px;
+            font-size: clamp(28px, 3.6vw, 44px);
+            font-weight: 600;
+            line-height: 1.12;
+            letter-spacing: -0.015em;
+        }
+
+        h3 { margin: 0; font-size: 20px; font-weight: 600; }
+
+        .apps { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+
+        .app {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            background: var(--surface);
+            transition: border-color 0.2s;
+        }
+        .app:hover, .chip:hover { border-color: var(--accent); }
+
+        .app .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            margin-bottom: 8px;
+            border-radius: 14px;
+            background: var(--bg);
+        }
+        .app img { height: 40px; max-width: 80%; object-fit: contain; }
+        .app p { margin: 0; color: var(--muted); font-size: 15px; }
+
+        .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+
+        .chip {
+            padding: 10px 18px;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            background: var(--surface);
+            font-size: 15px;
+            font-weight: 500;
+            transition: border-color 0.2s;
+        }
+
+        .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 56px 48px; }
+        .cols h2 { margin-bottom: 16px; font-size: 28px; }
+
+        .list { border-top: 1px solid var(--line); }
+
+        .item {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--line);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .item:hover { color: var(--accent); }
+        .item small { color: var(--muted); font-size: 14px; font-weight: 400; text-align: right; }
+
+        footer { padding: 32px 0 calc(40px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); }
+
+        .foot {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        main {
+            padding:6.7px;
+        }
+
+        @media (max-width: 900px) {
+            .cols { grid-template-columns: 1fr; }
+            .hero { min-height: 480px; padding: 36px 24px; }
+            section { padding-top: 64px; }
+        }
+
+        @media (max-width: 760px) {
+            .bar { flex-wrap: wrap; gap: 12px; }
+            .clock { margin-left: auto; }
+            .search { order: 3; flex-basis: 100%; max-width: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            * { transition: none !important; }
+        }
+
+    </style>
 </head>
+
 <body>
 
-<header>
- <div class="bar">
-  <div class="brand" onclick="window.top.location.href='https://jamesy-tech.github.io'">
-   <img src="icon8.png" alt="Jamesy-tech logo">
-   <h1 class="title" aria-label="Creativity is everything"></h1>
-  </div>
-  <div class="search">
-   <input class="searchbar" id="searchbar" placeholder="Search Jamesy-tech or type a URL" autocomplete="off">
-   <div class="results" id="results"></div>
-  </div>
-  <div class="clock"><b id="time">00:00</b><span id="date"></span></div>
- </div>
-</header>
+    <header>
+        <div class="wrap bar">
+            <a class="brand" href="https://jamesy-tech.github.io" aria-label="Jamesy-tech home">
+                <img src="icon8.png" alt="Jamesy-tech logo">
+                <span class="title" id="title" aria-label="Jamesy-tech"></span>
+            </a>
+            <div class="search">
+                <input class="searchbar" id="searchbar" type="search" placeholder="Search Jamesy-tech or type a URL" autocomplete="off">
+                <div class="results" id="results"></div>
+            </div>
+            <div class="clock"><b id="time">00:00</b><span id="date"></span></div>
+        </div>
+    </header>
 
-<main>
+    <main>
+        <div class="wrap">
+            <div class="hero">
+                <video class="hero-video" id="video" autoplay muted loop playsinline aria-hidden="true"></video>
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1>Welcome to jamesy-tech.github.io</h1>
+                    <p class="hero-lead">The home for all my creations, resources, favourites and more!</p>
+                    <div class="cta-row">
+                        <a class="btn btn-light" href="https://youtube.com/@jamesydeveloper">Watch on YouTube</a>
+                        <a class="btn btn-ghost" href="https://github.com/Jamesy-tech">View GitHub</a>
+                    </div>
+                </div>
+               <!-- <p class="hero-note">Creativity is everything | #jamesydeveloper</p> -->
+            </div>
+        </div>
 
-    <video id="video" autoplay loop muted playsinline>
-  <source src="cover5.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+        <section id="apps">
+            <div class="wrap">
+                <h2>Apps</h2>
+                <div class="apps" id="apps-list"></div>
+            </div>
+        </section>
 
-<span style="padding: 6px; display:block;"></span>
+        <section id="more">
+            <div class="wrap">
+                <h2>More</h2>
+                <div class="chips" id="chips"></div>
+            </div>
+        </section>
 
- <section class="hero">
-  <div>
-   <h1>Welcome to jamesy-tech.github.io</h1>
-   <p>The home for all my creations, resources, favourites and more!</p>
-  </div>
-  <div class="btns">
-   <a class="btn primary" href="https://youtube.com/@jamesydeveloper">Watch on YouTube</a>
-   <a class="btn ghost" href="https://github.com/Jamesy-tech">View GitHub</a>
-  </div>
- </section>
+        <section id="links">
+            <div class="wrap cols">
+                <div>
+                    <h2>Projects</h2>
+                    <div class="list" id="repos"></div>
+                </div>
+                <div>
+                    <h2>Socials</h2>
+                    <div class="list" id="socials"></div>
+                </div>
+                <div>
+                    <h2>Files</h2>
+                    <div class="list" id="files"></div>
+                </div>
+                <div>
+                    <h2>Favourites</h2>
+                    <div class="list" id="favourites"></div>
+                </div>
+            </div>
+        </section>
+    </main>
 
- <h2>Apps</h2>
- <div class="grid apps">
-  <a class="app" href="https://jamesy-tech.github.io/jamesy-creator"><div class="logo"><img src="shapes.png" alt=""></div><h3>Jamesy Creator</h3><p>Create documents, drawings, code, websites, read articles & more!</p></a>
-  <a class="app" href="https://jamesy-tech.github.io/BookUI/"><div class="logo"><img src="bookui.png" alt=""></div><h3>BookUI</h3><p>Command panel & JavaScript execution for websites.</p></a>
-  <a class="app" href="https://jamesy-tech.github.io/the-aloe-vera-guide"><div class="logo"><img src="the-aloe-vera-guide.png" alt=""></div><h3>The Aloe Vera Guide</h3><p>A simple guide for growing & using Aloe vera.</p></a>
-    <a class="app" href="https://jamesy-tech.github.io/MorningGlow"><div class="logo"><img src="github.png" alt=""></div><h3>More Apps & Projects</h3><p>Explore my profile full of projects & code on GitHub.</p></a>
- </div>
+    <footer>
+        <div class="wrap foot">
+            <span>https://jamesy-tech.github.io</span>
+            <span>Creativity is everything | #jamesydeveloper</span>
+        </div>
+    </footer>
 
- <h2>More</h2>
- <div class="chips">
-     <a class="chip" href="https://jamesy-tech.github.io/d">/d</a>
-  <a class="chip" href="https://jamesy-tech.github.io/AddBookUI">Add BookUI</a>
-  <a class="chip" href="https://jamesy-tech.github.io/ZacLabs">ZacLabs</a>
-  <a class="chip" href="https://jamesy-tech.github.io/buymeapencilforlife">buymeapencilforlife</a>
-  <a class="chip" href="https://jamesy-tech.github.io/bsod">bsod</a>
-  <a class="chip" href="https://jamesy-tech.github.io/Windows-12-Lite/startup.html">Windows 12 Concept</a>
-  <a class="chip" href="https://jamesy-tech.github.io/scripts">Scripts (archived)</a>
-  <a class="chip" href="https://jamesy-tech.github.io/codecreator">codecreator (archived)</a>
- </div>
+    <script src="https://www.noupe.com/embed/019e2e76f20b71a9bdf8da74f5ecb4ba369c.js"></script>
+    <script>
+        const SITE = "https://jamesy-tech.github.io";
+        const GH = "https://github.com/Jamesy-tech";
 
- <div class="cols">
-  <div>
-   <h2>Projects</h2>
-   <div class="list" id="repos"></div>
-  </div>
-  <div>
-   <h2>Socials</h2>
-   <div class="list">
-    <a class="card" href="https://github.com/Jamesy-tech">@Jamesy-tech<small>GitHub</small></a>
-    <a class="card" href="https://youtube.com/@jamesydeveloper">@JamesyDeveloper<small>YouTube</small></a>
-    <a class="card" href="https://www.roblox.com/users/4624140937/profile">@JamesyDeveloper<small>Roblox</small></a>
-    <a class="card" href="https://roblox.com/communities/33260778/JamesyGames">JamesyGames<small>Roblox community</small></a>
-    <a class="card" href="https://roblox.com/join/gtz60">JamesyGames Hub<small>Roblox game</small></a>
-   </div>
-   <h2>Files</h2>
-   <div class="list">
-    <a class="card" href="The Design Process.pdf">The Design Process<small>PDF</small></a>
-    <a class="card" href="animation1.mp4">animation1<small>MP4</small></a>
-    <a class="card" href="https://jamesy-tech.github.io/jamesy-creator-main.apk">jamesy-creator-main<small>APK</small></a>
-   </div>
-   <h2>Favourites</h2>
-   <div class="list">
-    <a class="card" href="https://squidindustries.co">Squid Industries<small>Balisong trainers</small></a>
-    <a class="card" href="https://www.squidindustries.co/products/winter-nautilus-v2">Winter Nautilus V2<small>Squid Industries</small></a>
-    <a class="card" href="https://nabalis.com">Nabalis<small>Balisong trainers</small></a>
-   </div>
-  </div>
- </div>
-</main>
+        // ---------- Content ----------
+        const apps = [
+            ["Jamesy Creator", "Create documents, drawings, code, websites, read articles & more!", `${SITE}/jamesy-creator`, "shapes.png"],
+            ["BookUI", "Command panel & JavaScript execution for websites.", `${SITE}/BookUI/`, "bookui.png"],
+            ["The Aloe Vera Guide", "A simple guide for growing & using Aloe vera.", `${SITE}/the-aloe-vera-guide`, "the-aloe-vera-guide.png"],
+            ["More Apps & Projects", "Explore my profile full of projects & code on GitHub.", GH, "github.png"]
+        ];
 
-<footer><span>https://jamesy-tech.github.io</span><span>Creativity is everything · #jamesydeveloper</span></footer>
+        const chips = [
+            ["/d", `${SITE}/d`],
+            ["Add BookUI", `${SITE}/AddBookUI`],
+            ["ZacLabs", `${SITE}/ZacLabs`],
+            ["buymeapencilforlife", `${SITE}/buymeapencilforlife`],
+            ["bsod", `${SITE}/bsod`],
+            ["Windows 12 Concept", `${SITE}/Windows-12-Lite/startup.html`],
+            ["Scripts (archived)", `${SITE}/scripts`],
+            ["codecreator (archived)", `${SITE}/codecreator`]
+        ];
 
-<script src='https://www.noupe.com/embed/019e2e76f20b71a9bdf8da74f5ecb4ba369c.js'></script>
-<script>
+        const repos = [
+            ["toolbox", "Collection of Bash scripts"],
+            ["bsod", "Fake BSOD"],
+            ["raspberry-pi-projects", "RPi projects"],
+            ["command-bookmarklets", "Command bookmarklets"],
+            ["sound-bookmarklets", "Sound bookmarklets"],
+            ["ttrs-hacks", "TTRS hacks"],
+            ["blooket-hacks", "Blooket hacks"],
+            ["RaspHub", "RaspHub"],
+            ["chromite", "Chromite"],
+            ["Kahu-Hub", "Kahu Hub"],
+            ["malachimobsounds", "Custom mob sounds"]
+        ].map(([name, note]) => [`/${name}`, note, `${GH}/${name}`]);
 
-const video = document.getElementById("video");
-const n = Math.floor(Math.random() * 2) + 1;
-video.src = `cover${n}.mp4`;
-video.play().catch(() => {});
+        const socials = [
+            ["@Jamesy-tech", "GitHub", GH],
+            ["@JamesyDeveloper", "YouTube", "https://youtube.com/@jamesydeveloper"],
+            ["@JamesyDeveloper", "Roblox", "https://www.roblox.com/users/4624140937/profile"],
+            ["JamesyGames", "Roblox community", "https://roblox.com/communities/33260778/JamesyGames"],
+            ["JamesyGames Hub", "Roblox game", "https://roblox.com/join/gtz60"]
+        ];
 
-const repos=[["toolbox","Collection of Bash scripts"],["bsod","Fake BSOD"],["raspberry-pi-projects","RPi projects"],["command-bookmarklets","Command bookmarklets"],["sound-bookmarklets","Sound bookmarklets"],["ttrs-hacks","TTRS hacks"],["blooket-hacks","Blooket hacks"],["RaspHub","RaspHub"],["chromite","Chromite"],["Kahu-Hub","Kahu Hub"],["malachimobsounds","Custom mob sounds"]];
-document.getElementById("repos").innerHTML=repos.map(r=>`<a class="card" href="https://github.com/Jamesy-tech/${r[0]}">/${r[0]}<small>${r[1]}</small></a>`).join("");
+        const files = [
+            ["The Design Process", "PDF", "The%20Design%20Process.pdf"],
+            ["animation1", "MP4", "animation1.mp4"],
+            ["jamesy-creator-main", "APK", `${SITE}/jamesy-creator-main.apk`]
+        ];
 
-const titleEl=document.querySelector(".title");
-" Jamesy-tech".split("").forEach(c=>{const s=document.createElement("span");s.className="letter";s.textContent=c===" "?"\u00A0":c;titleEl.appendChild(s)});
-window.addEventListener("DOMContentLoaded",()=>{
- const L=titleEl.querySelectorAll(".letter");let i=0;
- const t=setInterval(()=>{if(i<L.length)L[i++].classList.add("visible");else clearInterval(t)},80);
-});
+        const favourites = [
+            ["Nabalis Weekly Combo Submission #2", "YouTube", "https://www.youtube.com/shorts/dMdO57DP0Yc"],
+            ["Squid Industries", "Balisong trainers", "https://squidindustries.co"],
+            ["Winter Nautilus V2", "Squid Industries", "https://www.squidindustries.co/products/winter-nautilus-v2"],
+            ["Nabalis", "Balisong trainers", "https://nabalis.com"]
+        ];
 
-// Clock + date
-function tick(){const n=new Date();
- document.getElementById("time").textContent=n.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"});
- document.getElementById("date").textContent=n.toLocaleDateString("en-US",{weekday:"long",month:"short",day:"numeric"})+", "+n.getFullYear();}
-tick();setInterval(tick,1000);
+        // ---------- Render ----------
+        const $ = id => document.getElementById(id);
+        const item = ([label, note, href]) => `<a class="item" href="${href}">${label}<small>${note}</small></a>`;
 
-// Search: built from every link on the page
-const bar=document.getElementById("searchbar"),box=document.getElementById("results");
-const seen=new Set(),items=[];
-document.querySelectorAll("main a[href]").forEach(a=>{
- const u=a.getAttribute("href");if(seen.has(u))return;seen.add(u);
- const h=a.querySelector("h3");
- const label=(h?h.textContent:a.childNodes[0].textContent||a.textContent).trim();
- const extra=a.querySelector("small");
- items.push({t:extra?`${label} (${extra.textContent})`:label,u});
-});
-let shown=[],active=0;
-function render(){
- const q=bar.value.toLowerCase().trim();
- if(!q){box.classList.remove("show");shown=[];return}
- shown=items.filter(i=>i.t.toLowerCase().includes(q)||i.u.toLowerCase().includes(q));
- active=0;
- box.innerHTML=shown.map((i,n)=>`<button class="option${n?"":" active"}" data-i="${n}">${i.t}</button>`).join("")+
-  `<button class="option" data-g="1">Search on Google</button>`;
- box.classList.add("show");
-}
-function go(n){
- if(shown[n])location.href=shown[n].u;
- else location.href="https://www.google.com/search?q="+encodeURIComponent(bar.value.trim());
-}
-bar.addEventListener("input",render);
-bar.addEventListener("keydown",e=>{
- const opts=box.querySelectorAll(".option");
- if(e.key==="Enter"){
-  const v=bar.value.trim();
-  if(/^https?:\/\//i.test(v)&&!shown.length)location.href=v;else go(shown.length?active:-1);
- }else if(e.key==="ArrowDown"||e.key==="ArrowUp"){
-  e.preventDefault();if(!opts.length)return;
-  opts[active]?.classList.remove("active");
-  active=(active+(e.key==="ArrowDown"?1:-1)+opts.length)%opts.length;
-  opts[active].classList.add("active");opts[active].scrollIntoView({block:"nearest"});
- }else if(e.key==="Escape"){bar.value="";render()}
-});
-box.addEventListener("click",e=>{
- const b=e.target.closest(".option");if(!b)return;
- b.dataset.g?go(-1):go(+b.dataset.i);
-});
-document.addEventListener("click",e=>{if(!e.target.closest(".search"))box.classList.remove("show")});
-bar.addEventListener("focus",()=>{if(bar.value)box.classList.add("show")});
+        $("apps-list").innerHTML = apps.map(([name, text, href, img]) =>
+            `<a class="app" href="${href}"><div class="logo"><img src="${img}" alt=""></div><h3>${name}</h3><p>${text}</p></a>`
+        ).join("");
+        $("chips").innerHTML = chips.map(([label, href]) => `<a class="chip" href="${href}">${label}</a>`).join("");
+        $("repos").innerHTML = repos.map(item).join("");
+        $("socials").innerHTML = socials.map(item).join("");
+        $("files").innerHTML = files.map(item).join("");
+        $("favourites").innerHTML = favourites.map(item).join("");
 
-window.addEventListener("load",()=>{
- document.body.style.opacity="1";bar.focus();
- const q=new URLSearchParams(location.search).get("query");
- if(q){bar.value=q;render();if(shown.length)go(0)}
-});
-</script>
+        const video = $("video");
+        video.src = `cover${Math.floor(Math.random() * 2) + 1}.mp4`;
+      //  video.src = `cover2.mp4`;
+        video.play().catch(() => {});
+
+        const titleEl = $("title");
+        [..." Jamesy-tech"].forEach(c => {
+            const s = document.createElement("span");
+            s.className = "letter";
+            s.textContent = c === " " ? "\u00A0" : c;
+            titleEl.appendChild(s);
+        });
+        window.addEventListener("DOMContentLoaded", () => {
+            const letters = titleEl.querySelectorAll(".letter");
+            let i = 0;
+            const timer = setInterval(() => {
+                if (i < letters.length) letters[i++].classList.add("visible");
+                else clearInterval(timer);
+            }, 80);
+        });
+
+        function tick() {
+            const now = new Date();
+            $("time").textContent = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+            $("date").textContent = now.toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric" }) + ", " + now.getFullYear();
+        }
+        tick();
+        setInterval(tick, 1000);
+
+        const bar = $("searchbar");
+        const box = $("results");
+        const seen = new Set();
+        const index = [];
+
+        document.querySelectorAll("main a[href]").forEach(a => {
+            const url = a.getAttribute("href");
+            if (seen.has(url)) return;
+            seen.add(url);
+            const heading = a.querySelector("h3");
+            const note = a.querySelector("small");
+            const label = (heading ? heading.textContent : a.firstChild.textContent).trim();
+            index.push({ text: note ? `${label} (${note.textContent})` : label, url });
+        });
+
+        let shown = [];
+        let active = 0;
+
+        function render() {
+            const q = bar.value.toLowerCase().trim();
+            if (!q) {
+                box.classList.remove("show");
+                shown = [];
+                return;
+            }
+            shown = index.filter(i => i.text.toLowerCase().includes(q) || i.url.toLowerCase().includes(q));
+            active = 0;
+            box.innerHTML = shown.map((i, n) => `<button class="option${n ? "" : " active"}" data-i="${n}">${i.text}</button>`).join("")
+                + `<button class="option" data-g="1">Search on Google</button>`;
+            box.classList.add("show");
+        }
+
+        function go(n) {
+            location.href = shown[n]
+                ? shown[n].url
+                : "https://www.google.com/search?q=" + encodeURIComponent(bar.value.trim());
+        }
+
+        bar.addEventListener("input", render);
+        bar.addEventListener("keydown", e => {
+            const opts = box.querySelectorAll(".option");
+            if (e.key === "Enter") {
+                const v = bar.value.trim();
+                if (/^https?:\/\//i.test(v) && !shown.length) location.href = v;
+                else go(shown.length ? active : -1);
+            } else if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+                e.preventDefault();
+                if (!opts.length) return;
+                opts[active]?.classList.remove("active");
+                active = (active + (e.key === "ArrowDown" ? 1 : -1) + opts.length) % opts.length;
+                opts[active].classList.add("active");
+                opts[active].scrollIntoView({ block: "nearest" });
+            } else if (e.key === "Escape") {
+                bar.value = "";
+                render();
+            }
+        });
+        box.addEventListener("click", e => {
+            const b = e.target.closest(".option");
+            if (!b) return;
+            b.dataset.g ? go(-1) : go(+b.dataset.i);
+        });
+        document.addEventListener("click", e => {
+            if (!e.target.closest(".search")) box.classList.remove("show");
+        });
+        bar.addEventListener("focus", () => { if (bar.value) box.classList.add("show"); });
+
+        window.addEventListener("load", () => {
+            document.body.style.opacity = "1";
+            bar.focus();
+            const q = new URLSearchParams(location.search).get("query");
+            if (q) {
+                bar.value = q;
+                render();
+                if (shown.length) go(0);
+            }
+        });
+    </script>
 </body>
+
 </html>
